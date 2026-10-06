@@ -1,0 +1,16 @@
+services:
+  code-server:
+    build: .
+    container_name: chieta_code_server
+    ports:
+      - "8443:8080"
+    env_file:
+      - .env
+    environment:
+      PORT: "8080"
+    volumes:
+      - code_server_home:/home/coder/project
+    restart: unless-stopped
+
+volumes:
+  code_server_home:

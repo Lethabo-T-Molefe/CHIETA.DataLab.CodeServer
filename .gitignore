@@ -1,0 +1,6 @@
+.env
+.env.render
+.env.production
+.env.local
+project/
+*.log

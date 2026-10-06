@@ -1,0 +1,24 @@
+# Render Blueprint — CHIETA DataLab code-server
+# After deploy, set CODE_SERVER_URL on the backend to
+# https://<this-service>.onrender.com
+
+services:
+  - type: web
+    name: chieta-code-server
+    runtime: docker
+    plan: starter
+    healthCheckPath: /healthz
+    disk:
+      name: code-server-home
+      mountPath: /home/coder/project
+      sizeGB: 1
+    envVars:
+      - key: PORT
+        value: "8080"
+      # Use "password" + PASSWORD on any publicly reachable URL.
+      - key: CODE_SERVER_AUTH
+        value: none
+      - key: PASSWORD
+        sync: false
+      - key: CODE_SERVER_PROJECT
+        value: /home/coder/project

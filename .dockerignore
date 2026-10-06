@@ -1,0 +1,8 @@
+.git
+.env
+.env.render
+.env.production
+.env.local
+project/
+*.log
+README.md
